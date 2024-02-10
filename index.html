@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desafio One</title>
+  <script src="app.js"></script>
 </head>
 <body>
   <header>
@@ -12,8 +13,8 @@
   <main>
     <label for="inputText">Entre o texto:</label>
     <input type="text" id="inputText" placeholder="Entre o seu texto aqui">
-    <button>Encriptar</button>
-    <button>Desencriptar</button>
+    <button onclick="encriptar()">Encriptar</button>
+    <button onclick="desencriptar()">Desencriptar</button>
     <label for="textoProcessado">Texto Processado:</label>
     <textarea id="textoProcessado" rows="4" readonly></textarea>
   </main>
