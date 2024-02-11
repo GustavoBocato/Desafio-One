@@ -1,9 +1,10 @@
+let vogais = ['a', 'e', 'i', 'o', 'u'];
+let cifrasImportantes = ['ai', 'enter', 'imes', 'ober', 'ufat'];
 
 function encriptar(){
 
     let mensagem = document.getElementById('inputText').value;
     let mensagemEncriptada = '';
-    let vogais = ['a', 'e', 'i', 'o', 'u'];
 
     for (let i = 0; i < mensagem.length; i++){
 
@@ -50,35 +51,40 @@ function encriptar(){
 function desencriptar(){
 
     let cifra = document.getElementById('inputText').value;
-    let cifrasImportantes = ['ai', 'enter', 'imes', 'ober', 'ufat'];
-    let vogais = ['a', 'e', 'i', 'o', 'u'];
     let mensagem = '';
-    let aux = '';
 
-    for (let i = 0; i < cifra.length; i++){
+    // uma consonante nunca vai virar uma vogal segundo a formula de encriptação, logo se em uma cifra tem um trecho que começa com uma vogal já sabemos o conteudo que vai seguir essa vogal, que vai ser o restante da cifra em que essa vogal é convertida.
 
-        aux += cifra[i];
-        let indice = substringAEsquerda(aux, cifrasImportantes);
+    // porém o usuário pode escrever um texto que não é uma cifra gerada pela função de encriptar, nesse caso se o texto for uma cifra impossível de ser gerada, vamos retornar uma mensagem de erro.
+    
+    // criar uma função que checa se a cifra é bem formada ou não, e chamar aqui se retornar falso já devolver uma mensagem de erro.
 
-        if(indice == -1){
+    let i = 0;
 
-            // aux não é substring a esquerda de nenhuma cifra importante, portanto pode se descartar seu valor após passalo para a mensagem
+    while (i < cifra.length){
 
-            mensagem += aux;
-            aux = '';
+        if(!vogais.includes(cifra[i])){
 
-        }else if(cifrasImportantes.includes(aux)){
+            mensagem += cifra[i];
+            i++;
 
-            // aux além de ser um substring a esquerda de uma cifra importante é igual a uma cifra importante, logo devemos passar a vogal que está relacionada a essa cifra importante para a mensagem e descartar o valor da variável aux
+        }else{
 
-            mensagem += vogais[indice];
-            aux = '';
+            for(let j = 0; j < vogais.length; j++){
+
+                if(cifra[i] == vogais[j]){
+
+                    mensagem += vogais[j];
+                    i += cifrasImportantes[j].length;
+                    break;
+
+                }
+
+            }
 
         }
 
     }
-
-    mensagem += aux;
 
     document.getElementById('textoProcessado').value = mensagem;
 
