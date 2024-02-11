@@ -70,17 +70,9 @@ function desencriptar(){
 
         }else{
 
-            for(let j = 0; j < vogais.length; j++){
-
-                if(cifra[i] == vogais[j]){
-
-                    mensagem += vogais[j];
-                    i += cifrasImportantes[j].length;
-                    break;
-
-                }
-
-            }
+            indice = vogais.indexOf(cifra[i]);
+            mensagem += vogais[indice];
+            i += cifrasImportantes[indice].length;
 
         }
 
