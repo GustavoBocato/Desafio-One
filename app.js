@@ -81,3 +81,13 @@ function desencriptar(){
     document.getElementById('textoProcessado').value = mensagem;
 
 }
+
+function cifraEhBemFormada(cifra){
+
+    // uma cifra é bem formada quando existe uma mensagem que pode gerar ela a partir da aplicação das regras de encriptação
+    // uma mensagem pode ser definida como uma sequência de letras minúsculas e espaços
+    // as regras de encriptação dizem que uma consonante ou espaços não deve ser modificada, já uma vogal se torna uma palavra que começa com aquela vogal
+    // se uma mensagem foi cifrada usando as regras de encriptação, então a sua cifra vai ser uma sequência de espaços, consonates e cifras importantes. (condição necessária)
+    // se uma cifra for uma sequência de espaços, consonantes e cifras importantes, então ela  
+
+}
