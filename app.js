@@ -6,6 +6,15 @@ function encriptar(){
     let mensagem = document.getElementById('inputText').value;
     let mensagemEncriptada = '';
 
+    if(!mensagemEhBemFormada(mensagem)){
+
+        alert('Entre apenas uma mensagem que contenha letras minúsculas e espaços em branco.');
+        document.getElementById('inputText').value = '';
+        document.getElementById('textoProcessado').value = '';
+        return 0;
+
+    }
+
     for (let i = 0; i < mensagem.length; i++){
 
         if(!vogais.includes(mensagem[i])){
@@ -59,6 +68,15 @@ function desencriptar(){
     
     // criar uma função que checa se a cifra é bem formada ou não, e chamar aqui se retornar falso já devolver uma mensagem de erro.
 
+    if(!cifraEhBemFormada(cifra)){
+
+        alert('A cifra entrada não é bem formada, ou seja não existe mensagem que pode gerar essa cifra quando aplicadas as regras de encriptação usadas pela função do botão encriptar.');
+        document.getElementById('inputText').value = '';
+        document.getElementById('textoProcessado').value = '';
+        return 0;
+
+    }
+
     let i = 0;
 
     while (i < cifra.length){
@@ -82,12 +100,48 @@ function desencriptar(){
 
 }
 
+function mensagemEhBemFormada(mensagem){
+
+    return /^[a-z]+$/.test(mensagem);
+
+}
+
 function cifraEhBemFormada(cifra){
 
-    // uma cifra é bem formada quando existe uma mensagem que pode gerar ela a partir da aplicação das regras de encriptação
-    // uma mensagem pode ser definida como uma sequência de letras minúsculas e espaços
-    // as regras de encriptação dizem que uma consonante ou espaços não deve ser modificada, já uma vogal se torna uma palavra que começa com aquela vogal
-    // se uma mensagem foi cifrada usando as regras de encriptação, então a sua cifra vai ser uma sequência de espaços, consonates e cifras importantes. (condição necessária)
-    // se uma cifra for uma sequência de espaços, consonantes e cifras importantes, então ela  
+    let i = 0;
+    
+    while(i < cifra.length){
+
+        let indice = vogais.indexOf(cifra[i]);
+
+        if(indice == -1){
+
+            i ++;
+
+        }else{
+
+            if((i + cifrasImportantes[indice].length - 1) > (cifra.length - 1)){
+
+                return false;
+
+            }
+
+            for(let j = 0; j < cifrasImportantes[indice].length; j++){
+
+                if(cifra[i + j] != cifrasImportantes[indice][j]){
+
+                    return false;
+
+                }
+
+            }
+
+            i += cifrasImportantes[indice].length; 
+
+        }
+
+    }
+
+    return true;
 
 }
