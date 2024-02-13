@@ -102,7 +102,7 @@ function desencriptar(){
 
 function mensagemEhBemFormada(mensagem){
 
-    return /^[a-z]+$/.test(mensagem);
+    return /^[a-z\s]+$/.test(mensagem);
 
 }
 
