@@ -4,6 +4,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+
 
 }
 
@@ -12,20 +14,50 @@ main{
     height: 100%;
     width: 100%;
     display: flex;
+    justify-content: space-evenly;
+
+}
+
+footer{
+
+    width: 100%;
 
 }
 
 .rodape__listaDesordenada{
 
     display: flex;
-    justify-content: center;
-    gap: 2%;
+    justify-content: space-evenly;
 
 }
 
 .caixaDeTexto{
 
     height: 10%;
-    width: 10%;
+    width: 40%;
+
+}
+
+div{
+
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+
+}
+
+button{
+
+    height: 10%;
+
+}
+
+label{
+
+    height: 10%;
+    font-size: 150%;
 
 }
