@@ -145,3 +145,15 @@ function cifraEhBemFormada(cifra){
     return true;
 
 }
+
+function copiar(){
+
+    let elemento = document.getElementById('textoProcessado');
+
+    elemento.select();
+
+    document.execCommand("copy");
+
+    elemento.setSelectionRange(0, 0);
+
+}
