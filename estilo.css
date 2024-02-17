@@ -76,3 +76,27 @@ label{
     font-size: 160%;
 
 }
+
+@media screen and (max-width: 600px) {
+    body {
+        align-items: flex-start;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .caixaDeInput, .caixaDeOutput {
+        width: 80%;
+        height: auto;
+    }
+
+    button {
+        height: auto;
+    }
+
+    label {
+        font-size: 120%;
+    }
+}
