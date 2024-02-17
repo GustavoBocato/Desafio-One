@@ -1,5 +1,7 @@
 body{
 
+    margin: 0;
+    padding: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -73,30 +75,6 @@ button{
 
 label{
 
-    font-size: 160%;
+    font-size: 140%;
 
-}
-
-@media screen and (max-width: 600px) {
-    body {
-        align-items: flex-start;
-    }
-
-    main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .caixaDeInput, .caixaDeOutput {
-        width: 80%;
-        height: auto;
-    }
-
-    button {
-        height: auto;
-    }
-
-    label {
-        font-size: 120%;
-    }
 }
